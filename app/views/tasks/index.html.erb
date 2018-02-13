@@ -3,9 +3,16 @@
 <ul>
   <% @tasks.each do |task| %>
     <% if task.completed == true %>
-    <li><i class="far fa-check-square"></i> <%= link_to task.title, task_path(task) %></li>
+      <li>
+        <%= fa_icon "check-square" %> <%= link_to task.title, task_path(task) %> -
+        <%= link_to fa_icon("trash"), task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
     <% else %>
-    <li><i class="far fa-square"></i> <%= link_to task.title, task_path(task) %></li>
+      <li>
+        <%= fa_icon "square" %> <%= link_to task.title, task_path(task) %> - <%= link_to fa_icon("trash"), task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
     <% end %>
   <% end %>
 </ul>
+
+<%= fa_icon "plus" %> <%= link_to "Create a new task", new_path %>

@@ -2,4 +2,14 @@
 
 <p><%= @task.details %></p>
 
-<%= link_to "Back to list", index_path %>
+<p>
+  <% if @task.completed == true %>
+    <%= fa_icon "check-square" %> This task is completed
+  <% else %>
+    <%= fa_icon "square" %> This task is not completed yet
+  <% end %>
+</p>
+
+<%= fa_icon "edit" %> <%= link_to "Edit this task", edit_task_path %>
+
+<%= fa_icon "undo" %> <%= link_to "Back to list", index_path %>

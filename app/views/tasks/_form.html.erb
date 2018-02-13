@@ -6,8 +6,8 @@
   <%= f.text_area :details %>
 
   <% if @task.new_record? == false %>
-    <%= f.label(:completed, "Mark as completed") %>
-    <%= f.check_box(:completed) %>
+    <%= f.label :completed, "Mark as completed" %>
+    <%= f.check_box :completed %>
   <% end %>
 
   <%= f.submit %>
